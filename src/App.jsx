@@ -1,13 +1,7 @@
-import { Routes, Route } from 'react-router-dom';
-import Login from './pages/Login';
+import Sidebar from './components/Sidebar';
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/" element={<h1>Dashboard (pendiente)</h1>} />
-    </Routes>
-  );
+  return <Sidebar />;
 }
 
 export default App;
