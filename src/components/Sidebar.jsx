@@ -4,7 +4,8 @@ function Sidebar (){
     const [expanded, setExpanded] = useState(true);
 
     return (
-        <aside className="bg-navy text-white h-screen p-4">
+        <aside className={`bg-navy text-white h-screen p-4 transition-all duration-300
+        ${expanded ? "w-56" : "w-16"}`}>
         <p>Hola, soy el sidebar</p>
         <p>Estado Actual:{expanded ? 'abierto' : 'cerrado'}</p>
         <button onClick={() => setExpanded(!expanded)}
