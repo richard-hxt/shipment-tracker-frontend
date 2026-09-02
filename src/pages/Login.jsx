@@ -22,27 +22,41 @@ function Login() {
   }
 
   return (
-    <div>
-      <h1>Iniciar sesión</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Usuario:</label>
+    <div className="min-h-screen flex items-center justify-center bg-[#F7F8FA]">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white border border-gray-200 rounded-xl p-8 w-80 flex flex-col gap-4"
+      >
+        <h1 className="font-display text-xl text-navy mb-2">Iniciar sesión</h1>
+
+        <div className="flex flex-col gap-1">
+          <label className="text-sm text-gray-600">Usuario</label>
           <input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            className="border border-gray-300 rounded-md px-3 py-2 text-sm"
           />
         </div>
-        <div>
-          <label>Contraseña:</label>
+
+        <div className="flex flex-col gap-1">
+          <label className="text-sm text-gray-600">Contraseña</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="border border-gray-300 rounded-md px-3 py-2 text-sm"
           />
         </div>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit">Entrar</button>
+
+        {error && <p className="text-orange text-sm">{error}</p>}
+
+        <button
+          type="submit"
+          className="bg-navy hover:bg-navy/90 text-white text-sm font-medium px-4 py-2 rounded-md transition-colors mt-2"
+        >
+          Entrar
+        </button>
       </form>
     </div>
   );
