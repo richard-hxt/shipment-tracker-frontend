@@ -34,8 +34,11 @@ function ShipmentSearch(){
                 />
                 <button
                     onClick={handleSearch}
-                    className="bg-navy hover:bg-navy/90 text-white text-sm font-medium px-4 py-2 rounded-md transition-colors"
-                    >Buscar
+                    disabled = {loading}
+                    // 
+                    className={`${loading ? "bg-gray-400" : "bg-navy" } hover:bg-navy/90 text-white text-sm font-medium px-4 py-2 rounded-md transition-colors flex items-center gap-2`}>
+                    {loading && <span className="spinner"></span>}
+                    {loading ? 'Buscando...' : 'Buscar'}
                 </button>
             </div>
 
