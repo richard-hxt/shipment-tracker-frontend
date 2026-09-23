@@ -3,6 +3,7 @@ import Login from './pages/Login';
 import Sidebar from './components/Sidebar';
 import ShipmentSearch from './components/ShipmentSearch';
 import ProtectedRoute from './components/ProtectedRoute';
+import MilestoneTracker from './components/MilestoneTracker';
 
 function Dashboard() {
   return (
@@ -20,6 +21,12 @@ function App() {
       <Route path="/" element={
         <ProtectedRoute>
           <Dashboard />
+        </ProtectedRoute>
+      }
+      />
+        <Route path="/tracker" element={
+        <ProtectedRoute>
+          <MilestoneTracker currentMilestoneId={2}/>
         </ProtectedRoute>
       }
       />

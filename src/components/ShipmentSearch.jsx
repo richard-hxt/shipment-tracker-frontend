@@ -6,6 +6,7 @@ function ShipmentSearch(){
     const [loading, setLoading] = useState(false);
     const [result, setResult] = useState(null);
     const [error, setError] = useState('');
+    const [milestoneInfo, setMilestoneInfo] = useState(null);
     async function handleSearch(){
         setLoading(true);
         setError('');
@@ -15,6 +16,10 @@ function ShipmentSearch(){
                 headers: {Authorization: `Bearer ${token}`}
             });
             setResult(response.data);
+            const shipmentHistory = await api.get(`/shipments/${shipmentNumber}/history`, {
+                headers: {Authorization: `Bearer ${token}`}
+            });
+            setMilestoneInfo(shipmentHistory.data);
         } catch (err) {
             setError('No se encontró el shipment');
         }
@@ -51,9 +56,6 @@ function ShipmentSearch(){
                 {result.status_description}
                 </span>
                 <p className="text-sm text-gray-500 mt-3">{result.customer_number}</p>
-                <span className="inline-block text-xs font-semibold px-2.5 py-1 rounded-full bg-teal/10 text-teal">
-                {console.log(result)}
-                </span>
                 {result.on_hold && (
                 <p className="text-sm text-orange mt-2">
                     En hold: {result.hold_reason || '—'}
