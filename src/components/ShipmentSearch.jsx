@@ -36,7 +36,7 @@ function ShipmentSearch(){
                     onClick={handleSearch}
                     disabled = {loading}
                     // 
-                    className={`${loading ? "bg-gray-400" : "bg-navy" } hover:bg-navy/90 text-white text-sm font-medium px-4 py-2 rounded-md transition-colors flex items-center gap-2`}>
+                    className={`${  loading ? "bg-gray-400" : "bg-navy" } hover:bg-navy/90 text-white text-sm font-medium px-4 py-2 rounded-md transition-colors flex items-center gap-2`}>
                     {loading && <span className="spinner"></span>}
                     {loading ? 'Buscando...' : 'Buscar'}
                 </button>
@@ -51,6 +51,9 @@ function ShipmentSearch(){
                 {result.status_description}
                 </span>
                 <p className="text-sm text-gray-500 mt-3">{result.customer_number}</p>
+                <span className="inline-block text-xs font-semibold px-2.5 py-1 rounded-full bg-teal/10 text-teal">
+                {console.log(result)}
+                </span>
                 {result.on_hold && (
                 <p className="text-sm text-orange mt-2">
                     En hold: {result.hold_reason || '—'}
